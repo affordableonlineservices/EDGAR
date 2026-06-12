@@ -652,6 +652,10 @@ def options_chart(calls, puts, current_price):
 # ─────────────────────────────────────────────
 # SIDEBAR
 # ─────────────────────────────────────────────
+# Mobile-friendly Config Expander
+if IS_MOBILE:
+    with st.expander("⚙️  CONFIG & SETTINGS", expanded=False):
+        st.markdown('<div class="dash-header" style="font-size:1.1rem;">⚡ CONFIGURATION</div>', unsafe_allow_html=True)
 with st.sidebar:
     st.markdown('<div class="dash-header" style="font-size:1.3rem;">⚡ CONFIG</div>', unsafe_allow_html=True)
 
