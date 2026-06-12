@@ -26,7 +26,7 @@ def check_password():
         password = st.text_input("Enter password:", type="password")
         submitted = st.form_submit_button("Login")
         
-        if submitted and password == "your_password_here":
+        if submitted and password == "Xx222032Ss27$$":
             st.session_state.password_correct = True
             st.rerun()
         elif submitted:
