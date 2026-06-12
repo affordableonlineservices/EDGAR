@@ -10,7 +10,35 @@ Run:
 
 Then open: http://localhost:8501
 """
+import streamlit as st
 
+# PASSWORD PROTECTION
+def check_password():
+    """Returns `True` if the user had the correct password."""
+    
+    if "password_correct" not in st.session_state:
+        st.session_state.password_correct = False
+    
+    if st.session_state.password_correct:
+        return True
+    
+    with st.form("password_form"):
+        password = st.text_input("Enter password:", type="password")
+        submitted = st.form_submit_button("Login")
+        
+        if submitted and password == "your_password_here":
+            st.session_state.password_correct = True
+            st.rerun()
+        elif submitted:
+            st.error("❌ Incorrect password")
+            return False
+    
+    return False
+
+if not check_password():
+    st.stop()
+
+# REST OF YOUR DASHBOARD CODE GOES BELOW THIS LINE
 import json
 from datetime import datetime, timedelta
 from pathlib import Path
